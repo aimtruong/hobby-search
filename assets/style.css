@@ -10,6 +10,7 @@
 p{
     margin: 20px;
 }
+
 form{
     margin: 0 200px;
 }
@@ -26,6 +27,7 @@ button{
     padding: 10px 20px;
     margin: 10px;
 }
+
 /* Media query for SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px){
     .main-form{
