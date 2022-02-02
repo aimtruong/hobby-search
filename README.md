@@ -1,1 +1,3 @@
-# hobby-search
+# Hobby Search
+
+## Purpose
