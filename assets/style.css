@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 
 .dropdownbtn {
     background: none;
@@ -59,7 +58,8 @@ nav ul li:hover {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
-=======
+}
+
 .main-form{
     margin: 50px 0;
     position: relative;
@@ -112,5 +112,4 @@ button{
     .main-form{
         padding: 50px;
     }
->>>>>>> main
 }
