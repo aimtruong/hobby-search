@@ -1,0 +1,54 @@
+
+.main-form{
+    margin: 50px 0;
+    position: relative;
+    text-align: center;
+    padding: 50px 200px;
+    background-color: rgb(241, 235, 235);
+}
+
+p{
+    margin: 20px;
+}
+
+form{
+    margin: 0 200px;
+}
+
+form input[type="text"]::placeholder{
+    text-align: center;
+    color: rgb(97, 97, 97);
+}
+
+button{
+    background-color: salmon;
+    border-style: hidden;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+/* Media query for SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px){
+    .main-form{
+        padding: 50px 150px;
+    }
+
+    form input[type="text"]::placeholder{
+        font-size: smaller;
+    }
+}
+
+/* Media query for TABLETS AND SMALLER */
+@media screen and (max-width: 768px){
+    form{
+        margin: 0 100px;
+    }
+}
+
+/* Media query for MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px){
+    .main-form{
+        padding: 50px;
+    }
+}
