@@ -6,6 +6,7 @@
 * HTML
 * CSS
 * JavaScript
+* Materialize
 
 ## Website
 https://aimtruong.github.io/hobby-search/
