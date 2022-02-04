@@ -1,6 +1,7 @@
 # Hobby Search
 
 ## Purpose
+A search engine for hobbyists to get information and tutorials on a specific topic and connect users with communities of shared interests.
 
 ## Built With
 * HTML
