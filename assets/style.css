@@ -1,4 +1,66 @@
 
+
+.dropdownbtn {
+    background: none;
+    border: none;
+    color:white;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-flat:focus {
+    background-color: rgba(0,0,0,0);  
+}
+
+button:focus {
+    background-color: rgba(0,0,0,0);
+}
+
+.dropdown.active > .dropdownbtn,
+.dropdownbtn:hover {
+    color: black;
+}
+
+.dropdown {
+    position: relative;
+    margin-right: 60px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    width: max-content;
+    right: 0;
+    top: calc(100% + .25rem);
+    color: black;
+    background-color: white;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1);
+    opacity: 0;
+    z-index: 100;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown-content {
+    color: black;
+}
+
+nav ul li {
+    float: none;
+}
+
+nav ul li:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.dropdown.active > .dropdownbtn + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
 .main-form{
     margin: 50px 0;
     position: relative;

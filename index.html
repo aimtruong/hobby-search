@@ -10,18 +10,20 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-    <!-- dropdown content -->
-    <ul id="dropdown1" class="dropdown-content">
-        <li>one</li>
-        <li>two</li>
-    </ul>
     <!-- header navigation -->
-    <nav>
-        <div class="nav-wrapper">
-            <a href="./index.html" class="brand-logo center">Hobby Searcher</a>
-            <ul class="right">
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Saved<i class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
+    <nav class="nav-wrapper">
+        <a href="./index.html" class="brand-logo center">Hobby Searcher</a>
+        <div id="dropdown" class="dropdown right"> 
+            <button id="dropdownBtn" class="dropdownbtn btn-flat">Saved<i class="tiny material-icons right" style="height: 100%; align-content: center;">arrow_drop_down</i></button>
+            <div class="dropdown-menu">
+                <div class="dropdown-heading">Your past Searches</div>
+                <ul>
+                    <li>One</li>
+                    <li>two</li>
+                    <li>three</li>
+                    <li>four</li>
+                </ul>
+            </div>
         </div>
     </nav>
 
