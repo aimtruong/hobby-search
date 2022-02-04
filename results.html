@@ -5,47 +5,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+  
     <!-- nav carried over from homepage -->
+    <nav class="nav-wrapper">
+        <a href="./index.html" class="brand-logo center">Hobby Searcher</a>
+        <div id="dropdown" class="dropdown right"> 
+            <button id="dropdownBtn" class="dropdownbtn btn-flat">Saved<i class="tiny material-icons right" style="height: 100%; align-content: center;">arrow_drop_down</i></button>
+            <div class="dropdown-menu">
+                <div class="dropdown-heading">Your past Searches</div>
+                <ul>
+                    <li>One</li>
+                    <li>two</li>
+                    <li>three</li>
+                    <li>four</li>
+                </ul>
+            </div>
+        </div>
     <nav>
-
-    </nav>
+      
     <!-- new search box -->
     <section>
-        <form>
-            <input type="text">
-            <button>Search</button>
+        <form class="center-align">
+            <input type="text" id="hobby-input" placeholder="Enter A Hobby" />
+            <button type="submit">Search</button>
         </form>
     </section>
     <!-- results via youtube, reddit, pinterest, wiki -->
-    <main>
-        <div id="tutorials-container">
+    <main class="main-form">
+        <div class="row">
             <p>Youtube tutorial results</p>
-            <div id="result1"></div>
-            <div id="result2"></div>
-            <div id="result3"></div>
-            <div id="result4"></div>
-            <button>View more results</button>
+            <div class="col s2 card grey">1</div>
+            <div class="col s2 card grey">2</div>
+            <div class="col s2 card grey">3</div>
+            <div class="col s2 card grey">4</div>
+            <div class="col s2 card grey">5</div>
+            <div class="col s2 card grey">6</div>
         </div>
-        <div id="communities-container">
+            <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!">2</a></li>
+                <li class="waves-effect"><a href="#!">3</a></li>
+                <li class="waves-effect"><a href="#!">4</a></li>
+                <li class="waves-effect"><a href="#!">5</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div>
+        <div class="row">
             <p>Popular communities</p>
-            <div id="result1"></div>
-            <div id="result2"></div>
-            <div id="result3"></div>
-            <div id="result4"></div>
-            <button>View more results</button>
+            <div class="col s2 card grey">1</div>
+            <div class="col s2 card grey">2</div>
+            <div class="col s2 card grey">3</div>
+            <div class="col s2 card grey">4</div>
+            <div class="col s2 card grey">5</div>
+            <div class="col s2 card grey">6</div>
         </div>
-        <div id="references-container">
-            <p>Additional references</p>
-            <div id="result1"></div>
-            <div id="result2"></div>
-            <div id="result3"></div>
-            <div id="result4"></div>
-            <button>View more results</button>
-        </div> 
+            <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!">2</a></li>
+                <li class="waves-effect"><a href="#!">3</a></li>
+                <li class="waves-effect"><a href="#!">4</a></li>
+                <li class="waves-effect"><a href="#!">5</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div>
+        <div class="row">
+            <p>Additional Resources</p>
+            <div class="col s2 card grey">1</div>
+            <div class="col s2 card grey">2</div>
+            <div class="col s2 card grey">3</div>
+            <div class="col s2 card grey">4</div>
+            <div class="col s2 card grey">5</div>
+            <div class="col s2 card grey">6</div>
+        </div>
+            <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!">2</a></li>
+                <li class="waves-effect"><a href="#!">3</a></li>
+                <li class="waves-effect"><a href="#!">4</a></li>
+                <li class="waves-effect"><a href="#!">5</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div>
     </main>
 </body>
 <script src="./assets/results.js"></script>
