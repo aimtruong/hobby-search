@@ -47,6 +47,10 @@ button:focus {
     color: black;
 }
 
+nav i.material-icons {
+    line-height: 34px;
+}
+
 nav ul li {
     float: none;
 }
