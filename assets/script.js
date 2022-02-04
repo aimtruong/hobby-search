@@ -1,7 +1,6 @@
+var dropdownbtn = document.getElementById('dropdownBtn');
+var dropdownEl = document.getElementById('dropdown')
 
- document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, options);
-  });
-
-  instance.open();
+dropdownbtn.addEventListener('click', function() {
+  dropdownEl.classList.toggle('active');
+})
