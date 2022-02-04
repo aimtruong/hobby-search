@@ -94,6 +94,32 @@ button{
     margin: 10px;
 }
 
+.results-row{
+    background-color: white;
+    padding: 0 50px;
+    width: 100%;
+}
+
+.results-row ul{
+    padding: 15px 0;
+}
+
+.results-row p{
+    padding: 15px;
+    font-size: 20px;
+}
+
+.results-main{
+    position: relative;
+    text-align: center;
+    background-color: rgb(241, 235, 235);
+    padding: 15px;
+}
+
+.row div{
+    height: 200px;
+}
+
 /* Media query for SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px){
     .main-form{
