@@ -10,6 +10,8 @@ var getHobby = function() {
     var hobby = queryString.split("=")[1];
     if (hobby) {
         getYoutubeResults(hobby);
+        getRedditResults(hobby);
+        getWikiResults(hobby);
     } else {
         document.location.replace("./index.html");
     }
@@ -21,9 +23,45 @@ var getYoutubeResults = function(hobby) {
   fetch(apiUrl)
     .then(function(response) {
       response.json().then(function(data) {
+        console.log("youtube");
         console.log(data);
       })
     });
 };
+
+var getRedditResults = function(hobby) {
+  var apiUrl = "https://www.reddit.com/search.json?q=" + hobby;
+
+  fetch(apiUrl)
+    .then(function(response) {
+      response.json().then(function(data) {
+        console.log("reddit");
+        console.log(data);
+      })
+    })
+}
+
+var getWikiResults = function(hobby) {
+  var url = "https://en.wikipedia.org/w/api.php"; 
+  
+  var params = {
+      action: "query",
+      list: "search",
+      srsearch: hobby,
+      srlimit: "10",
+      format: "json"
+  };
+  
+  url = url + "?origin=*";
+  Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+  
+  fetch(url)
+      .then(function(response) {
+        response.json().then(function(data) {
+          console.log("wiki");
+          console.log(data);
+        })
+      })
+}
 
 getHobby();
