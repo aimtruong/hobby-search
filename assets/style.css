@@ -116,9 +116,10 @@ button{
     padding: 15px 0;
 }
 
-.results-row p{
+.main-title{
     padding: 15px;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .results-main{
@@ -130,6 +131,25 @@ button{
 
 .row div{
     height: 200px;
+}
+
+.card{
+    height: 200px;
+    width: 200px;
+}
+
+.crdtitle{
+    font-size: 15px;
+    margin: 20px;
+    font-weight: bold;
+    background-color: white;
+    padding: 3px;
+}
+
+.yt-card{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 /* Media query for SMALLER DESKTOP SCREENS AND SMALLER */
