@@ -38,11 +38,12 @@ var ytContainer = document.querySelector(".yt-container");
 var ytCard = [];
 var ytTitle = [];
 var ytImg = [];
+var ytData = [];
 
 // displays YT videos on site
 var displayYTresults = function(data){
   for(var i = 0; i <= 5 /*data.items.length*/; i++){
-    ytCard[i] = document.createElement("div");
+    ytCard[i] = document.createElement("a");
       ytCard[i].classList = "yt-card col s2 card";
         var newImage = data.items[i].snippet.thumbnails.medium.url;
         ytCard[i].style.backgroundImage = "url(" + newImage + ")";
@@ -51,16 +52,14 @@ var displayYTresults = function(data){
       ytTitle[i].textContent = data.items[i].snippet.title;
       ytTitle[i].classList.add("crdtitle");
 
-    ytContainer.appendChild(ytCard[i]);
-    ytCard[i].appendChild(ytTitle[i]);
-    
-    // when yt video is clicked, a new tab will open with video
-    //var ytVideoPopUp = function(data){
-    //  var ytData = data.items[i].snippet.title;
-    //  console.log(ytData);
-    //};
-
-    //ytCard[i].addEventListener("click", ytVideoPopUp);
+      ytCard[i].href ="https://www.youtube.com/watch?v=" + data.items[i].id.videoId;
+      ytCard[i].setAttribute("target", "_blank");
+      
+      ytCard[i].addEventListener("click", function(){
+    })
+      
+      ytContainer.appendChild(ytCard[i]);
+      ytCard[i].appendChild(ytTitle[i]);
   }
 
 };
