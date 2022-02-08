@@ -28,6 +28,7 @@ var getYoutubeResults = function(hobby) {
       console.log("youtube");
       console.log(data);
       displayYTresults(data);
+      saveHobby(hobby, data);
     })
   });
 };
@@ -75,10 +76,10 @@ var getRedditResults = function(hobby) {
       response.json().then(function(data) {
         console.log("reddit");
         console.log(data);
+        // saveHobby(hobby, data);
       })
     })
 };
-
 
 
 // WIKIPEDIA
@@ -102,9 +103,43 @@ var getWikiResults = function(hobby) {
         response.json().then(function(data) {
           console.log("wiki");
           console.log(data);
+          // saveHobby(hobby, data);
         })
       })
 }
+
+var firstHobby = document.querySelector("#first-hobby");
+var secondHobby = document.querySelector("#second-hobby");
+var thirdHobby = document.querySelector("#third-hobby");
+var fourthHobby = document.querySelector("#fourth-hobby");
+
+// save to local storage
+var saveHobby = function(hobby, data){
+  var hobbyName = hobby;
+  var hobbyData = data;
+
+  localStorage.setItem(hobbyName, JSON.stringify(hobbyData));
+  JSON.parse(localStorage.getItem(hobbyName));
+
+  if(!firstHobby.textContent){
+    firstHobby.textContent = hobbyName;
+    firstHobby.addEventListener("click", getHobby);
+  }
+  else if(!secondHobby.textContent){
+    secondHobby.textContent = hobbyName;
+    secondHobby.addEventListener("click", getHobby);
+  }
+  else if(!thirdHobby.textContent){
+    thirdHobby.textContent = hobbyName;
+    thirdHobby.addEventListener("click", getHobby);
+  }
+  else if(!fourthHobby.textContent){
+    fourthHobby.textContent = hobbyName;
+    fourthHobby.addEventListener("click", getHobby);
+  }
+
+  
+};
 
 
 getHobby();
