@@ -5,12 +5,13 @@ dropdownbtn.addEventListener('click', function() {
   dropdownEl.classList.toggle('active');
 })
 
+// function to put search into each api functions
 var getHobby = function() {
   var queryString = document.location.search;
     var hobby = queryString.split("=")[1];
     if (hobby) {
         getYoutubeResults(hobby);
-        getRedditResults(hobby);
+        //getRedditResults(hobby);
         getWikiResults(hobby);
     } else {
         document.location.replace("./index.html");
@@ -28,6 +29,7 @@ var getYoutubeResults = function(hobby) {
       console.log("youtube");
       console.log(data);
       displayYTresults(data);
+      saveHobbyYT(hobby, data);
     })
   });
 };
@@ -37,8 +39,6 @@ var ytContainer = document.querySelector(".yt-container");
 
 var ytCard = [];
 var ytTitle = [];
-var ytImg = [];
-var ytData = [];
 
 // displays YT videos on site
 var displayYTresults = function(data){
@@ -56,7 +56,7 @@ var displayYTresults = function(data){
       ytCard[i].setAttribute("target", "_blank");
       
       ytCard[i].addEventListener("click", function(){
-    })
+    });
       
       ytContainer.appendChild(ytCard[i]);
       ytCard[i].appendChild(ytTitle[i]);
@@ -64,22 +64,22 @@ var displayYTresults = function(data){
 
 };
 
-
+/*
 // REDDIT
   // get Reddit API
 var getRedditResults = function(hobby) {
-  var apiUrl = "https://www.reddit.com/search.json?q=" + hobby /* to just look for communities + "&type=sr" */;
+  var apiUrl = "https://www.reddit.com/search.json?q=" + hobby;
 
   fetch(apiUrl)
     .then(function(response) {
       response.json().then(function(data) {
         console.log("reddit");
         console.log(data);
+        // saveHobbyRed(hobby, data);
       })
     })
 };
-
-
+*/
 
 // WIKIPEDIA
   // get Wiki API
@@ -102,9 +102,78 @@ var getWikiResults = function(hobby) {
         response.json().then(function(data) {
           console.log("wiki");
           console.log(data);
+          displayWikiresults(data);
+          // saveHobbyWiki(hobby, data);
         })
       })
-}
+};
+
+// variables for displayWikiresults
+var wikiContainer = document.querySelector(".wiki-container");
+
+var wikiCard = [];
+var wikiTitle = [];
+var wikiSnippet = [];
+
+// displays YT videos on site
+var displayWikiresults = function(data){
+  for(var i = 0; i <= 5 /*data.query.search.length*/; i++){
+    wikiCard[i] = document.createElement("a");
+    wikiCard[i].classList = "wiki-card col s2 card";
+
+    wikiTitle[i] = document.createElement("p");
+      wikiTitle[i].textContent = data.query.search[i].title;
+      wikiTitle[i].classList.add("crdtitle", "wikititle");
+
+    wikiSnippet[i] = document.createElement("p");
+      wikiSnippet[i].innerHTML = data.query.search[i].snippet;
+      wikiSnippet[i].classList.add("wikiSnippet");
+
+    wikiCard[i].href = "https://en.wikipedia.org/wiki/" + data.query.search[i].title;
+    wikiCard[i].setAttribute("target", "_blank");
+
+    wikiCard[i].addEventListener("click", function(){
+    });
+      
+    wikiContainer.appendChild(wikiCard[i]);
+    wikiCard[i].appendChild(wikiTitle[i]);
+    wikiCard[i].appendChild(wikiSnippet[i]);
+  }
+
+};
+
+// variables for previous searches
+var firstHobby = document.querySelector("#first-hobby");
+var secondHobby = document.querySelector("#second-hobby");
+var thirdHobby = document.querySelector("#third-hobby");
+var fourthHobby = document.querySelector("#fourth-hobby");
+
+// save to local storage
+var saveHobbyYT = function(hobby, data){
+  var hobbyName = hobby;
+  var hobbyData = data;
+
+  localStorage.setItem(hobbyName + "YT", JSON.stringify(hobbyData));
+  JSON.parse(localStorage.getItem(hobbyName));
+
+  if(!firstHobby.textContent){
+    firstHobby.textContent = hobbyName;
+    firstHobby.addEventListener("click", getHobby);
+  }
+  else if(!secondHobby.textContent){
+    secondHobby.textContent = hobbyName;
+    secondHobby.addEventListener("click", getHobby);
+  }
+  else if(!thirdHobby.textContent){
+    thirdHobby.textContent = hobbyName;
+    thirdHobby.addEventListener("click", getHobby);
+  }
+  else if(!fourthHobby.textContent){
+    fourthHobby.textContent = hobbyName;
+    fourthHobby.addEventListener("click", getHobby);
+  }
+  
+};
 
 
 getHobby();
