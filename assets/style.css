@@ -145,12 +145,29 @@ button{
     background-color: white;
     padding: 3px;
     color: black;
+    text-align: center;
 }
 
 .yt-card{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.wiki-card{
+    background-color: lightgray;
+}
+
+.wikititle{
+    text-align: center;
+}
+
+.wikiSnippet{
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    font-size: 10px;
+    margin: 10px;
 }
 
 /* Media query for SMALLER DESKTOP SCREENS AND SMALLER */
