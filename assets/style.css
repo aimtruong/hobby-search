@@ -209,7 +209,7 @@ button{
     }
 
     .wikiSnippet{
-        font-size: 9px;
+        font-size: 8px;
 
     }
 }
@@ -222,12 +222,12 @@ button{
 
     .crdtitle{
         font-size: 8px;
-        margin: 2px 0;
+        margin: 10px 0;
     }
 
     .wikiSnippet{
         margin: 10px -3px;
-        font-size: 8px;
+        font-size: 6px;
     }
 }
 
