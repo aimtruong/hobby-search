@@ -8,6 +8,8 @@ A search engine for hobbyists to get information and tutorials on a specific top
 * CSS
 * JavaScript
 * Materialize
+* YouTube API
+* Wikipedia API
 
 ## Website
 https://aimtruong.github.io/hobby-search/
