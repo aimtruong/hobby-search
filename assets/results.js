@@ -126,7 +126,7 @@ var displayWikiresults = function(data){
       wikiTitle[i].classList.add("crdtitle", "wikititle");
 
     wikiSnippet[i] = document.createElement("p");
-      wikiSnippet[i].innerHTML = data.query.search[i].snippet;
+      wikiSnippet[i].innerHTML = data.query.search[i].snippet + "...";
       wikiSnippet[i].classList.add("wikiSnippet");
 
     wikiCard[i].href = "https://en.wikipedia.org/wiki/" + data.query.search[i].title;

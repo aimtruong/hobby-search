@@ -179,12 +179,32 @@ button{
     form input[type="text"]::placeholder{
         font-size: smaller;
     }
+
+    .crdtitle{
+        font-size: 10px;
+    }
+
+    .wikiSnippet{
+        margin: 0;
+        
+    }
 }
 
 /* Media query for TABLETS AND SMALLER */
 @media screen and (max-width: 768px){
     form{
         margin: 0 100px;
+    }
+
+    .crdtitle{
+        font-size: 12px;
+        padding: 2px;
+        margin: 5px;
+    }
+
+    .wikiSnippet{
+        font-size: 9px;
+
     }
 }
 
@@ -193,4 +213,15 @@ button{
     .main-form{
         padding: 50px;
     }
+
+    .crdtitle{
+        font-size: 8px;
+        margin: 2px 0;
+    }
+
+    .wikiSnippet{
+        margin: 10px -3px;
+        font-size: 8px;
+    }
 }
+
