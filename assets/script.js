@@ -7,7 +7,7 @@ dropdownbtn.addEventListener('click', function() {
   dropdownEl.classList.toggle('active');
 })
 
-var submitFormHandler = function() {
+var submitFormHandler = function(event) {
   event.preventDefault();
   var hobby = searchInputEl.value.trim();
   console.log(hobby);

@@ -107,6 +107,15 @@ var getWikiResults = function(hobby) {
         })
       })
 }
+ 
+// var myArray = new Array();
+// myArray[0] = "first-hobby";
+// myArray[1] = "second-hobby";
+// myArray[2] = "third-hobby";
+// myArray[3] = "fourth-hobby";
+// for (var i=0; i<myArray.length; i++) {
+//   document.write("Element " +i+ " contains: " +myArray[i]+ "<br />");
+// }
 
 var firstHobby = document.querySelector("#first-hobby");
 var secondHobby = document.querySelector("#second-hobby");
@@ -118,8 +127,10 @@ var saveHobbyYT = function(hobby, data){
   var hobbyName = hobby;
   var hobbyData = data;
 
-  localStorage.setItem(hobbyName + "YT", JSON.stringify(hobbyData));
+  localStorage.setItem(hobbyName, JSON.stringify(hobbyData));
   JSON.parse(localStorage.getItem(hobbyName));
+
+
 
   if(!firstHobby.textContent){
     firstHobby.textContent = hobbyName;
@@ -136,6 +147,7 @@ var saveHobbyYT = function(hobby, data){
   else if(!fourthHobby.textContent){
     fourthHobby.textContent = hobbyName;
     fourthHobby.addEventListener("click", getHobby);
+    
   }
 
   
