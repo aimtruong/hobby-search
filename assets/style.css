@@ -41,6 +41,7 @@ button:focus {
     pointer-events: none;
     transform: translateY(-10px);
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    overflow: hidden;
 }
 
 .dropdown-heading {
@@ -61,6 +62,7 @@ nav ul li {
     font-size: .75rem;
     text-align: center;
     border-bottom: solid 1px rgba(0,0,0,0.1);
+    cursor: pointer;
 }
 
 nav ul li:last-child {
@@ -69,6 +71,10 @@ nav ul li:last-child {
 
 nav ul li:hover {
     background-color: rgba(0,0,0,0.1);
+}
+
+nav ul li:active {
+    background-color: salmon;
 }
 
 .dropdown.active > .dropdownbtn + .dropdown-menu {
@@ -145,12 +151,29 @@ button{
     background-color: white;
     padding: 3px;
     color: black;
+    text-align: center;
 }
 
 .yt-card{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.wiki-card{
+    background-color: lightgray;
+}
+
+.wikititle{
+    text-align: center;
+}
+
+.wikiSnippet{
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    font-size: 10px;
+    margin: 10px;
 }
 
 /* Media query for SMALLER DESKTOP SCREENS AND SMALLER */
@@ -162,12 +185,32 @@ button{
     form input[type="text"]::placeholder{
         font-size: smaller;
     }
+
+    .crdtitle{
+        font-size: 10px;
+    }
+
+    .wikiSnippet{
+        margin: 0;
+        
+    }
 }
 
 /* Media query for TABLETS AND SMALLER */
 @media screen and (max-width: 768px){
     form{
         margin: 0 100px;
+    }
+
+    .crdtitle{
+        font-size: 12px;
+        padding: 2px;
+        margin: 5px;
+    }
+
+    .wikiSnippet{
+        font-size: 8px;
+
     }
 }
 
@@ -176,4 +219,15 @@ button{
     .main-form{
         padding: 50px;
     }
+
+    .crdtitle{
+        font-size: 8px;
+        margin: 10px 0;
+    }
+
+    .wikiSnippet{
+        margin: 10px -3px;
+        font-size: 6px;
+    }
 }
+
