@@ -13,13 +13,14 @@ var getHobby = function() {
         getYoutubeResults(hobby);
         //getRedditResults(hobby);
         getWikiResults(hobby);
+        saveHobby(hobby);
     } else {
         document.location.replace("./index.html");
     }
 }
 
 // YOUTUBE SECTION
-  // get API
+   //get API
 var getYoutubeResults = function(hobby) {
   var apiUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=" + hobby + "-tutorial" + "&type=video&maxResults=30&key=AIzaSyCIdf8UZgAIhrjvw1jNT-u3Wk9bAAOqdxU"
   
@@ -29,7 +30,6 @@ var getYoutubeResults = function(hobby) {
       console.log("youtube");
       console.log(data);
       displayYTresults(data);
-      saveHobbyYT(hobby, data);
     })
   });
 };
@@ -75,7 +75,6 @@ var getRedditResults = function(hobby) {
       response.json().then(function(data) {
         console.log("reddit");
         console.log(data);
-        // saveHobbyRed(hobby, data);
       })
     })
 };
@@ -103,7 +102,6 @@ var getWikiResults = function(hobby) {
           console.log("wiki");
           console.log(data);
           displayWikiresults(data);
-          // saveHobbyWiki(hobby, data);
         })
       })
 };
@@ -115,7 +113,7 @@ var wikiCard = [];
 var wikiTitle = [];
 var wikiSnippet = [];
 
-// displays YT videos on site
+// displays WikiPedia pages on site
 var displayWikiresults = function(data){
   for(var i = 0; i <= 5 /*data.query.search.length*/; i++){
     wikiCard[i] = document.createElement("a");
@@ -143,37 +141,21 @@ var displayWikiresults = function(data){
 };
 
 // variables for previous searches
-var firstHobby = document.querySelector("#first-hobby");
-var secondHobby = document.querySelector("#second-hobby");
-var thirdHobby = document.querySelector("#third-hobby");
-var fourthHobby = document.querySelector("#fourth-hobby");
+var savedHobbies = document.querySelector(".dropdown-options");
+var Hobby = [];
 
 // save to local storage
-var saveHobbyYT = function(hobby, data){
-  var hobbyName = hobby;
-  var hobbyData = data;
+//var saveHobby = function(hobby){
+ // var hobbyName = hobby;
 
-  localStorage.setItem(hobbyName + "YT", JSON.stringify(hobbyData));
-  JSON.parse(localStorage.getItem(hobbyName));
+  //  localStorage.setItem("Hobby", JSON.stringify(hobbyName));
+  //  JSON.parse(localStorage.getItem(Hobby));
+    
+  //  Hobby = document.createElement("li");
+  //  Hobby.textContent = hobbyName;
 
-  if(!firstHobby.textContent){
-    firstHobby.textContent = hobbyName;
-    firstHobby.addEventListener("click", getHobby);
-  }
-  else if(!secondHobby.textContent){
-    secondHobby.textContent = hobbyName;
-    secondHobby.addEventListener("click", getHobby);
-  }
-  else if(!thirdHobby.textContent){
-    thirdHobby.textContent = hobbyName;
-    thirdHobby.addEventListener("click", getHobby);
-  }
-  else if(!fourthHobby.textContent){
-    fourthHobby.textContent = hobbyName;
-    fourthHobby.addEventListener("click", getHobby);
-  }
-  
-};
+  //  savedHobbies.appendChild(Hobby);
+//};
 
 
 getHobby();
