@@ -15,7 +15,8 @@ A search engine for hobbyists to get information and tutorials on a specific top
 https://aimtruong.github.io/hobby-search/
 
 ## Preview
-![image](https://user-images.githubusercontent.com/95596045/153121222-8ea9f244-a95d-4bdc-948f-9ef68d5ceb54.png)
+![first-look](https://user-images.githubusercontent.com/95596045/153519437-9adfde03-1485-4d8c-925a-8deddfbf46a0.JPG)
+
 
 ## Contribution
 Made by Aimee Truong, Charles Peace, Julie Pozdnyakov, Dillon Roth
