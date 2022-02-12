@@ -1,22 +1,37 @@
 var dropdownbtn = document.getElementById('dropdownBtn');
 var dropdownEl = document.getElementById('dropdown')
 var savedHobbiesUlEl = document.getElementById('saved-hobbies');
-hobbies = [];
+var searchFormEl = document.getElementById('search-form');
+var searchInputEl = document.getElementById('hobby-input');
+hobbiesArr = [];
 
 dropdownbtn.addEventListener('click', function() {
   dropdownEl.classList.toggle('active');
 })
+
+savedHobbiesUlEl.addEventListener('click', function() {
+  var pastHobby = event.target.textContent
+  window.location.replace("./results.html?hobby=" + pastHobby);
+});
+
+var submitFormHandler = function(event) {
+  event.preventDefault();
+  var hobby = searchInputEl.value.trim();
+  pushHobby(hobby);
+  saveHobby();
+  window.location.replace("./results.html?hobby=" + hobby);
+}
+
+searchFormEl.addEventListener('submit', submitFormHandler);
 
 // function to put search into each api functions
 var getHobby = function() {
   var queryString = document.location.search;
     var hobby = queryString.split("=")[1];
     if (hobby) {
-        //getYoutubeResults(hobby);
+        getYoutubeResults(hobby);
         //getRedditResults(hobby);
         getWikiResults(hobby);
-        pushHobby(hobby);
-        saveHobby();
     } else {
         document.location.replace("./index.html");
     }
@@ -33,7 +48,6 @@ var getYoutubeResults = function(hobby) {
       console.log("youtube");
       console.log(data);
       displayYTresults(data);
-      // saveHobbyYT(hobby, data);
     })
   });
 };
@@ -112,15 +126,6 @@ var getWikiResults = function(hobby) {
       })
 };
  
-// var myArray = new Array();
-// myArray[0] = firstHobby;
-// myArray[1] = "second-hobby";
-// myArray[2] = "third-hobby";
-// myArray[3] = "fourth-hobby";
-// for (var i=0; i<myArray.length; i++) {
-//   document.write("Element " +i+ " contains: " +myArray[i]+ "<br />");
-// }
-
 // variables for displayWikiresults
 var wikiContainer = document.querySelector(".wiki-container");
 
@@ -155,67 +160,30 @@ var displayWikiresults = function(data){
 
 };
 
-// //variables for previous searches
-// var firstHobby = document.querySelector("#first-hobby");
-// var secondHobby = document.querySelector("#second-hobby");
-// var thirdHobby = document.querySelector("#third-hobby");
-// var fourthHobby = document.querySelector("#fourth-hobby");
-
-// // save to local storage
-// var saveHobbyYT = function(hobby, data){
-//   var hobbyName = hobby;
-//   var hobbyData = data;
-
-//   localStorage.setItem(hobbyName, JSON.stringify(hobbyData));
-//   JSON.parse(localStorage.getItem(hobbyName));
-
-
-
-//   if(!firstHobby.textContent){
-//     firstHobby.textContent = hobbyName;
-//     firstHobby.addEventListener("click", getHobby);
-//   }
-//   else if(!secondHobby.textContent){
-//     secondHobby.textContent = hobbyName;
-//     secondHobby.addEventListener("click", getHobby);
-//   }
-//   else if(!thirdHobby.textContent){
-//     thirdHobby.textContent = hobbyName;
-//     thirdHobby.addEventListener("click", getHobby);
-//   }
-//   else if(!fourthHobby.textContent){
-//     fourthHobby.textContent = hobbyName;
-//     fourthHobby.addEventListener("click", getHobby);
-    
-//   }
-  
-// };
-
-var pushHobby = function(hobby) {
-  if (hobbies.includes(hobby)) {
-    return
-  } else {
-    hobbies.push(hobby);
-  }
-}
-
-var saveHobby = function() {
-  // localStorage.setItem('hobby', JSON.stringify(hobbies));
-  console.log(hobbies);
-}
-
 var loadPastHobbies = function(){
   hobbies = JSON.parse(localStorage.getItem('hobby'));
 
-  for (var i = 0; i < hobbies.length; i++) {
-    createDropdownEl(hobbies[i]);
+  if(hobbies == null) {
+    return
+  } else {
+    for (var i = 0; i < hobbies.length; i++) {
+      hobbiesArr.push(hobbies[i]);
+      createDropdownEl(hobbies[i]);
+    }
   }
+}
+
+var pushHobby = function(hobby) {
+  hobbiesArr.push(hobby);
+}
+
+var saveHobby = function() {
+  localStorage.setItem('hobby', JSON.stringify(hobbiesArr));
 }
 
 var createDropdownEl = function(hobby) {
   var hobbyLi = document.createElement('li');
   hobbyLi.textContent = hobby;
-  hobbyLi.addEventListener('click', getHobby(hobbyLi.textContent));
   savedHobbiesUlEl.appendChild(hobbyLi);
 }
 
